@@ -9,21 +9,21 @@ const people = [];
 const randChoice = arr => arr[Math.floor(Math.random() * arr.length)];
 
 for (let i = 0; i < 20; i++) {
-    const randomGender = randChoice(genders);
-    const randomFirstName = randomGender === 'female'
+    const gender = randChoice(genders);
+    const firstName = gender === 'female'
     ? randChoice(femaleFirstNames)
     : randChoice(maleFirstNames);
-    const randomLastName = randChoice(lastNames);
-    const randomName = `${randomFirstName} ${randomLastName}`;
-    const randomAge = Math.floor(Math.random() * 60) + 18;
+    const lastName = randChoice(lastNames);
+    //const fullName = `${firstName} ${lastName}`;
+    const age = Math.floor(Math.random() * 60) + 18;
     
     const number1 = Math.floor(Math.random() * 900) + 100;
     const number2 = Math.floor(Math.random() * 900) + 100;
     const number3 = Math.floor(Math.random() * 900) + 100;
-    const randomPhone = `${number1}-${number2}-${number3}`;
-    const randomEmail = `${randomFirstName.toLowerCase()}.${randomLastName.toLowerCase()}@gmail.com`;
+    const phone = `${number1}-${number2}-${number3}`;
+    const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}@gmail.com`;
 
-    people.push({randomGender, randomName, randomAge, randomPhone, randomEmail});
+    people.push({gender, firstName, lastName, age, phone, email});
 }
 
 const data = JSON.stringify(people);
